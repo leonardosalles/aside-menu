@@ -1,0 +1,136 @@
+<link rel="import" href="../lib/polymer/polymer.html">
+
+<polymer-element name="aside-menu"
+		 		 attributes="bartitle fixedheader basepath items indexview"
+		 		 class="master">
+
+	<template>
+        <template if="{{fixedheader}}">
+            <header class="titlebar fixed">
+                <span class="menu-anchor" on-click="{{toggleAsideMenu}}"></span>
+                <h1><a href="#">{{bartitle}}</a></h1>
+            </header>
+            
+            <menu class="listmenu">
+                <ul>
+                    <template repeat="{{item in items}}">
+                        <li>
+                            <a href="#" onclick="return false;" data-view="{{item.view}}" data-bartitle="{{item.bartitle}}" on-click="{{changeMainContent}}">{{item.description}}</a>
+                        </li>
+                    </template>
+                </ul>
+            </menu>
+
+            <section class="main top-space">
+            </section>
+        </template>
+        
+        <template if="{{!fixedheader}}">
+            <header class="titlebar">
+                <span class="menu-anchor" on-click="{{toggleAsideMenu}}"></span>
+                <h1><a href="#">{{bartitle}}</a></h1>
+            </header>
+            
+            <menu class="listmenu">
+                <ul>
+                    <template repeat="{{item in items}}">
+                        <li>
+                            <a href="#" onclick="return false;" data-view="{{item.view}}" data-bartitle="{{item.bartitle}}" on-click="{{changeMainContent}}">{{item.description}}</a>
+                        </li>
+                    </template>
+                </ul>
+            </menu>
+
+            <section class="main">
+            </section>
+        </template>
+	</template>
+
+	<script>
+		Polymer('aside-menu', {
+			bartitle: '',
+            fixedheader: false,
+            basepath: '',
+			items: '',
+            indexview: '',
+
+            ready: function () {
+                this.fire('content-section-created');
+                this.items = this.parseItems();
+                this.loadIndexView();
+            },
+
+            toggleAsideMenu: function () {
+            	var element = document.querySelector('.master');
+
+                if(element.className.indexOf('menu-active') >= 0) {
+                    element.className = 'master';
+                } else {
+                    element.className = 'master menu-active';
+                }
+            },
+            
+            parseItems: function () {
+                //Find best way to do this
+                return eval('(' + this.items + ')');
+            },
+    
+            loadIndexView: function (viewHref) {
+                if (!this.indexview) {
+                    return;
+                }
+
+                var request = new this.AjaxRequest();
+                if (request.overrideMimeType) { 
+                    request.overrideMimeType('text/html'); 
+                }
+
+                request.onreadystatechange = function () {
+                    if (request.readyState === 4) {
+                        if (request.status === 200 || window.location.href.indexOf('http') === -1) {
+                            var data = request.responseText;
+                            var master = document.querySelector('.master');
+                            master.impl.lastElementChild.innerHTML = data;
+                        } else {
+                            alert("An error has occured making the request");
+                        }
+                    }
+                }
+
+                if (viewHref) {
+                    request.open('GET', this.basepath !== '' ? this.basepath + '/' + viewHref : viewHref, true);
+                }  else {
+                    request.open('GET', this.basepath !== '' ? this.basepath + '/' + this.indexview : this.indexview, true);
+                }
+                request.send(null);
+                
+                return false;
+            },
+            
+            AjaxRequest: function () {
+                var activexmodes = ["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"];
+
+                if (window.ActiveXObject) {
+                    for (var i = 0; i < activexmodes.length; i++) {
+                        try {
+                            return new ActiveXObject(activexmodes[i]);
+                        } catch (e) {}
+                    }
+                } else if (window.XMLHttpRequest) {
+                    return new XMLHttpRequest();
+                } else {
+                    return false;
+                };
+            },
+
+            changeMainContent: function (attachedEvent) {
+                var element = document.querySelector('.master');
+                var href = attachedEvent.impl.srcElement.getAttribute('data-view');
+                this.bartitle = attachedEvent.impl.srcElement.getAttribute('data-bartitle');
+                this.loadIndexView(href);
+                element.className = 'master';
+            },
+		});
+	</script>
+
+</polymer-element>
