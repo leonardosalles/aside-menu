@@ -43,7 +43,7 @@
 Attribute  | Options                   | Default             | Description
 ---        | ---                       | ---                 | ---
 `bartitle` | *string*                  | null                | Title of you menu header
-`fixed`    | *boolean*                 | false               | Indicates if header is fixed
+`fixedheader`| *boolean*                 | false               | Indicates if header is fixed
 `basepath` | *string*                  | null                | The base path that contains the views
 `indexview`| *string*                  | null                | First view should be rendered
 `items`    | *array*                   | null                | Array of object with href, description and bartitle of views of menu
