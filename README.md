@@ -88,6 +88,6 @@ For detailed changelog, check [Releases](https://github.com/leonardosalles/aside
 [MIT License](http://opensource.org/licenses/MIT)
 
 ## Credits
-This HTML and CSS code for skeleton is base on [Diego Eis article](http://tableless.com.br/fazendo-um-slide-menu-mobile-sem-plugin/)
+This HTML and CSS code for skeleton is based on [Diego Eis article](http://tableless.com.br/fazendo-um-slide-menu-mobile-sem-plugin/)
 
 
