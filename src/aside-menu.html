@@ -125,7 +125,7 @@
 
             changeMainContent: function (attachedEvent) {
                 var element = document.querySelector('.master');
-                var href = attachedEvent.impl.srcElement.getAttribute('data-hrefv');
+                var href = attachedEvent.impl.srcElement.getAttribute('data-href');
                 this.bartitle = attachedEvent.impl.srcElement.getAttribute('data-bartitle');
                 this.loadIndexView(href);
                 element.className = 'master';
