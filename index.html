@@ -3,9 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>&lt;aside-menu&gt;</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no">
 
 	<!-- Importing Web Component's Polyfill -->
-    <script src="lib/platform/platform.js"></script>
+    	<script src="lib/platform/platform.js"></script>
 
 	<!-- Importing Custom Elements CSS -->
 	<link rel="stylesheet" type="text/css" href="src/aside-menu.css">
@@ -17,13 +18,17 @@
 
 	<!-- Using Custom Elements -->
 	<aside-menu bartitle="Home" 
-				items="[
-                        {view: 'home.html', description: 'Home', bartitle: 'Home'},
-						{view: 'services.html', description: 'Services', bartitle: 'Services'},
-                        {view: 'forum.html', description: 'Forum', bartitle: 'Forum'},
-                        {view: 'about.html', description: 'About', bartitle: 'About'},
-                        {view: 'blog.html', description: 'Blog', bartitle: 'Blog'}
-                       ]" fixed="true" basepath="views" indexview="home.html"></aside-menu>
+		    items="[
+                            {view: 'home.html', description: 'Home', bartitle: 'Home'},
+			    {view: 'services.html', description: 'Services', bartitle: 'Services'},
+                            {view: 'forum.html', description: 'Forum', bartitle: 'Forum'},
+                            {view: 'about.html', description: 'About', bartitle: 'About'},
+                            {view: 'blog.html', description: 'Blog', bartitle: 'Blog'}
+                           ]" 
+                    fixed="true" 
+                    basepath="views" 
+                    indexview="home.html">
+         </aside-menu>
     
 </body>
 </html>
