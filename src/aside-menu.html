@@ -15,7 +15,7 @@
                 <ul>
                     <template repeat="{{item in items}}">
                         <li>
-                            <a href="#" onclick="return false;" data-view="{{item.view}}" data-bartitle="{{item.bartitle}}" on-click="{{changeMainContent}}">{{item.description}}</a>
+                            <a href="#" onclick="return false;" data-href="{{item.href}}" data-bartitle="{{item.bartitle}}" on-click="{{changeMainContent}}">{{item.description}}</a>
                         </li>
                     </template>
                 </ul>
@@ -35,7 +35,7 @@
                 <ul>
                     <template repeat="{{item in items}}">
                         <li>
-                            <a href="#" onclick="return false;" data-view="{{item.view}}" data-bartitle="{{item.bartitle}}" on-click="{{changeMainContent}}">{{item.description}}</a>
+                            <a href="#" onclick="return false;" data-href="{{item.href}}" data-bartitle="{{item.bartitle}}" on-click="{{changeMainContent}}">{{item.description}}</a>
                         </li>
                     </template>
                 </ul>
@@ -125,7 +125,7 @@
 
             changeMainContent: function (attachedEvent) {
                 var element = document.querySelector('.master');
-                var href = attachedEvent.impl.srcElement.getAttribute('data-view');
+                var href = attachedEvent.impl.srcElement.getAttribute('data-hrefv');
                 this.bartitle = attachedEvent.impl.srcElement.getAttribute('data-bartitle');
                 this.loadIndexView(href);
                 element.className = 'master';
