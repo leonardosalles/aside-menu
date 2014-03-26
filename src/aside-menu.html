@@ -89,7 +89,11 @@
                     if (request.readyState === 4) {
                         if (request.status === 200 || window.location.href.indexOf('http') === -1) {
                             var data = request.responseText;
-                            referenceItem.impl.lastElementChild.innerHTML = data;
+                            if (referenceItem.fixedheader) {
+                                referenceItem.impl.lastElementChild.previousElementSibling.innerHTML = data;
+                            } else {
+                                referenceItem.impl.lastElementChild.innerHTML = data;
+                            }
                             if (bartitle) {
                             	referenceItem.bartitle = bartitle;	
                             }
