@@ -36,11 +36,11 @@
     <script type="text/javascript">
         //Select element and set menu items
         var asideMenu = document.querySelector('#aside-menu');
-        asideMenu.items = [{view: 'home.html', description: 'Home', bartitle: 'Home'},
-                           {view: 'services.html', description: 'Services', bartitle: 'Services'},
-                           {view: 'forum.html', description: 'Forum', bartitle: 'Forum'},
-                           {view: 'about.html', description: 'About', bartitle: 'About'},
-                           {view: 'blog.html', description: 'Blog', bartitle: 'Blog'}];
+        asideMenu.items = [{href: 'home.html', description: 'Home', bartitle: 'Home'},
+                           {href: 'services.html', description: 'Services', bartitle: 'Services'},
+                           {href: 'forum.html', description: 'Forum', bartitle: 'Forum'},
+                           {href: 'about.html', description: 'About', bartitle: 'About'},
+                           {href: 'blog.html', description: 'Blog', bartitle: 'Blog'}];
     </script>
     ```
     
