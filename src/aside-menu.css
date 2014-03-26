@@ -133,6 +133,7 @@ h1 a {color: #FFF; text-decoration: none;}
 .fixed {
     position: fixed;
     width: 100%;
+    z-index: 1;
 }
 
 .top-space {
