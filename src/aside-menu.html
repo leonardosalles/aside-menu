@@ -61,12 +61,10 @@
             },
 
             toggleAsideMenu: function () {
-            	var element = document.querySelector('.master');
-
-                if(element.className.indexOf('menu-active') >= 0) {
-                    element.className = 'master';
+                if(this.className.indexOf('menu-active') >= 0) {
+                    this.className = 'master';
                 } else {
-                    element.className = 'master menu-active';
+                    this.className = 'master menu-active';
                 }
             },
             
