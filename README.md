@@ -29,7 +29,7 @@
 4. Start using it!
 
     ```html
-    <aside-menu bartitle="Home" fixed="true" basepath="views" indexview="home.html" id="aside-menu"></aside-menu>
+    <aside-menu bartitle="Home" fixedheader="true" basepath="views" indexview="home.html" id="aside-menu"></aside-menu>
     ```
     
     ```html
