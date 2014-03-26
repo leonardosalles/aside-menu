@@ -33,7 +33,7 @@
     ```
     
     ```html
-        <script type="text/javascript">
+    <script type="text/javascript">
         //Select element and set menu items
         var asideMenu = document.querySelector('#aside-menu');
         asideMenu.items = [{view: 'home.html', description: 'Home', bartitle: 'Home'},
@@ -41,7 +41,6 @@
                            {view: 'forum.html', description: 'Forum', bartitle: 'Forum'},
                            {view: 'about.html', description: 'About', bartitle: 'About'},
                            {view: 'blog.html', description: 'Blog', bartitle: 'Blog'}];
-
     </script>
     ```
     
