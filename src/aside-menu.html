@@ -56,7 +56,7 @@
 
             ready: function () {
                 this.fire('content-section-created');
-                this.items = this.parseItems();
+                this.items = typeof(this.items) === 'string' ? this.parseItems() : this.items;
                 this.loadIndexView();
             },
 
