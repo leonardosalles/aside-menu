@@ -14,13 +14,19 @@
     <script src="lib/platform/platform.js"></script>
     ```
 
-2. Import Custom Element:
+2. Import Custom Element CSS:
+
+    ```html
+    <link rel="stylesheet" type="text/css" href="src/aside-menu.css">
+    ```
+
+3. Import Custom Element:
 
     ```html
     <link rel="import" href="src/aside-menu.html">
     ```
 
-3. Start using it!
+4. Start using it!
 
     ```html
     <aside-menu bartitle="Home" 
@@ -47,29 +53,6 @@ Attribute  | Options                   | Default             | Description
 `basepath` | *string*                  | null                | The base path that contains the views
 `indexview`| *string*                  | null                | First view should be rendered
 `items`    | *array*                   | null                | Array of object with href, description and bartitle of views of menu
-
-## Setup
-
-In order to run it locally you'll need a basic server setup.
-
-1. Install [NodeJS](http://nodejs.org/download/).
-2. Install [GruntJS](http://gruntjs.com/):
-
-    ```sh
-    $ [sudo] npm install -g grunt-cli
-    ```
-
-3. Install local dependencies:
-
-    ```sh
-    $ npm install
-    ```
-
-4. Run a local server and open `http://localhost:8000`.
-
-    ```sh
-    $ grunt connect
-    ```
 
 ## Contributing
 
