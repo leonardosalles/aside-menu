@@ -29,18 +29,22 @@
 4. Start using it!
 
     ```html
-    <aside-menu bartitle="Home" 
-		items="[
-                	{href: 'home.html', description: 'Home', bartitle: 'Home'},
-			{href: 'services.html', description: 'Services', bartitle: 'Services'},
-                	{href: 'forum.html', description: 'Forum', bartitle: 'Forum'},
-		        {href: 'about.html', description: 'About', bartitle: 'About'},
-                	{href: 'blog.html', description: 'Blog', bartitle: 'Blog'}
-                       ]" 
-		fixed="true" 
-		basepath="views" 
-		indexview="home.html"></aside-menu>
+    <aside-menu bartitle="Home" fixed="true" basepath="views" indexview="home.html" id="aside-menu"></aside-menu>
     ```
+    
+    ```html
+        <script type="text/javascript">
+        //Select element and set menu items
+        var asideMenu = document.querySelector('#aside-menu');
+        asideMenu.items = [{view: 'home.html', description: 'Home', bartitle: 'Home'},
+                           {view: 'services.html', description: 'Services', bartitle: 'Services'},
+                           {view: 'forum.html', description: 'Forum', bartitle: 'Forum'},
+                           {view: 'about.html', description: 'About', bartitle: 'About'},
+                           {view: 'blog.html', description: 'Blog', bartitle: 'Blog'}];
+
+    </script>
+    ```
+    
 
 
 
