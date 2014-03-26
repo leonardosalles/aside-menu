@@ -78,7 +78,7 @@
                     return;
                 }
                 
-                var referenceItem = this;
+                var self = this;
                 
                 var request = new this.AjaxRequest();
                 if (request.overrideMimeType) { 
@@ -89,13 +89,13 @@
                     if (request.readyState === 4) {
                         if (request.status === 200 || window.location.href.indexOf('http') === -1) {
                             var data = request.responseText;
-                            if (referenceItem.fixedheader) {
-                                referenceItem.impl.lastElementChild.previousElementSibling.innerHTML = data;
+                            if (self.fixedheader) {
+                                self.impl.lastElementChild.previousElementSibling.innerHTML = data;
                             } else {
-                                referenceItem.impl.lastElementChild.innerHTML = data;
+                                self.impl.lastElementChild.innerHTML = data;
                             }
                             if (bartitle) {
-                            	referenceItem.bartitle = bartitle;	
+                            	self.bartitle = bartitle;	
                             }
                         } else {
                             alert("An error has occured making the request");
@@ -130,9 +130,10 @@
             },
 
             changeMainContent: function (attachedEvent) {
-                var href = attachedEvent.impl.srcElement.getAttribute('data-href');
                 this.bartitle = 'Loading...';
-                this.loadIndexView(href, attachedEvent.impl.srcElement.getAttribute('data-bartitle'));
+
+            	var data = attachedEvent.impl.srcElement.dataset;
+            	this.loadIndexView(data.href, data.bartitle);
                 this.className = 'master';
             },
 		});
